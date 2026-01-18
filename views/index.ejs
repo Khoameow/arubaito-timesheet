@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Manager</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/" class="nav-btn" data-i18n="nav_input">📝 Nhập liệu</a>
+            <a href="/history" class="nav-btn" data-i18n="nav_history">📜 Lịch sử</a>
+            <a href="/charts" class="nav-btn" data-i18n="nav_chart">📊 Biểu đồ</a>
+        </div>
+        <div class="lang-selector">
+            <select id="lang-switch" onchange="changeLanguage(this.value)">
+                <option value="vi">Tiếng Việt</option>
+                <option value="ja">日本語</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h3 data-i18n="nav_input">Thêm Công Việc Mới</h3>
+            <form id="work-form">
+                <div class="grid">
+                    <div class="field">
+                        <label data-i18n="job_name">Tên công việc</label>
+                        <input type="text" id="job-name" placeholder="Amazon, Tiệm bánh..." required>
+                    </div>
+                    <div class="field">
+                        <label data-i18n="date">Ngày làm</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="field">
+                        <label data-i18n="start">Bắt đầu</label>
+                        <input type="time" id="start-time" required>
+                    </div>
+                    <div class="field">
+                        <label data-i18n="end">Kết thúc</label>
+                        <input type="time" id="end-time" required>
+                    </div>
+                    <div class="field">
+                        <label data-i18n="break">Nghỉ (phút)</label>
+                        <input type="number" id="break-time" value="0" min="0">
+                    </div>
+                    <div class="field">
+                        <label data-i18n="wage">Lương/Giờ</label>
+                        <input type="number" id="hourly-wage" value="1100" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary" data-i18n="btn_save">Lưu bản ghi</button>
+            </form>
+        </div>
+    </div>
+
+   <script src="/module/config.js"></script>
+    <script src="/module/core.js"></script>
+    <script src="/module/ui.js"></script>
+</body>
+</html>

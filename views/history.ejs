@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Manager - History</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/" class="nav-btn" data-i18n="nav_input">📝 Nhập liệu</a>
+            <a href="/history" class="nav-btn" data-i18n="nav_history">📜 Lịch sử</a>
+            <a href="/charts" class="nav-btn" data-i18n="nav_chart">📊 Biểu đồ</a>
+        </div>
+        <div class="lang-selector">
+            <select id="lang-switch" onchange="changeLanguage(this.value)">
+                <option value="vi">Tiếng Việt</option>
+                <option value="ja">日本語</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h3 data-i18n="history_title">Lịch sử làm việc</h3>
+            <div style="margin-bottom: 20px;">
+                <input type="month" id="filter-month" onchange="renderHistory()">
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-i18n="date">Ngày</th>
+                            <th data-i18n="job_name">Tên Job</th>
+                            <th data-i18n="total_day">Số giờ</th>
+                            <th data-i18n="wage">Lương</th>
+                            <th style="width: 50px;">X</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/module/config.js"></script>
+    <script src="/module/core.js"></script>
+    <script src="/module/ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', renderHistory);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Manager - Charts</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="/" class="nav-btn" data-i18n="nav_input">📝 Nhập liệu</a>
+            <a href="/history" class="nav-btn" data-i18n="nav_history">📜 Lịch sử</a>
+            <a href="/charts" class="nav-btn" data-i18n="nav_chart">📊 Biểu đồ</a>
+        </div>
+        <div class="lang-selector">
+            <select id="lang-switch" onchange="changeLanguage(this.value)">
+                <option value="vi">Tiếng Việt</option>
+                <option value="ja">日本語</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card search-card">
+            <h4 data-i18n="chart_title">🔍 Chi tiết theo ngày</h4>
+            
+            <div class="grid-search">
+                <div class="field">
+                    <label data-i18n="date">Chọn ngày</label>
+                    <input type="date" id="chart-date-selector">
+                </div>
+                <button onclick="handleSearchDay()" class="btn-primary btn-search">
+                    <span data-i18n="btn_search">Tìm kiếm</span>
+                </button>
+            </div>
+
+            <div id="day-summary" class="summary-box"></div>
+
+            <div class="chart-wrapper pie-container">
+                <canvas id="selectedDayPieChart"></canvas>
+            </div>
+        </div>
+
+        <div class="grid-charts">
+            <div class="card chart-card">
+                <div class="chart-wrapper">
+                    <canvas id="daysChart"></canvas>
+                </div>
+            </div>
+            <div class="card chart-card">
+                <div class="chart-wrapper">
+                    <canvas id="monthsChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/module/config.js"></script>
+    <script src="/module/core.js"></script>
+    <script src="/module/ui.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', updateAllCharts);
+    </script>
+</body>
+</html>
